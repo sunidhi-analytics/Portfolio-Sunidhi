@@ -4,158 +4,567 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sunidhi Sharma | Data Scientist, People Analytics</title>
-<meta name="description" content="Senior Data Scientist specializing in People Analytics, Causal Inference, and Responsible AI. 5+ years turning workforce data into business decisions.">
+<meta name="description" content="Portfolio website for Sunidhi Sharma — Data Scientist specializing in People Analytics, workforce analytics, experimentation, and predictive modeling.">
 <meta property="og:title" content="Sunidhi Sharma | Data Scientist, People Analytics">
-<meta property="og:description" content="5+ years turning workforce data into business decisions. Specializing in experimentation, causal inference, and predictive systems.">
+<meta property="og:description" content="People Analytics, experimentation, causal inference, forecasting, and data-driven workforce strategy.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #09090B; --surface: #111114; --surface-l: #18181C;
-  --border: #27272A; --border-l: #3F3F46;
-  --text: #FAFAFA; --text-s: #A1A1AA; --text-d: #71717A;
-  --accent: #2DD4BF; --accent-dim: rgba(45,212,191,0.12); --accent-b: rgba(45,212,191,0.25);
-  --font-h: 'Sora', sans-serif; --font-b: 'Source Sans 3', sans-serif; --font-m: 'JetBrains Mono', monospace;
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #f9fbfd;
+  --border: #e5eaf1;
+  --border-strong: #d8e0ea;
+  --text: #16202b;
+  --text-soft: #4e5d6c;
+  --text-faint: #7a8794;
+  --accent: #1d4ed8;
+  --accent-soft: rgba(29,78,216,0.08);
+  --accent-border: rgba(29,78,216,0.18);
+  --success: #0f766e;
+  --shadow: 0 18px 50px rgba(15, 23, 42, 0.07);
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.05);
+  --radius: 18px;
+  --font-h: 'Inter', sans-serif;
+  --font-b: 'Inter', sans-serif;
+  --font-m: 'IBM Plex Mono', monospace;
 }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-::selection { background: rgba(45,212,191,0.25); color: #fff; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: var(--font-b); line-height: 1.6; overflow-x: hidden; }
+body {
+  background: linear-gradient(180deg, #f8fafc 0%, #f4f7fb 100%);
+  color: var(--text);
+  font-family: var(--font-b);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
 a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
-/* Animations */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes pulse { 0%,100% { opacity: .6; } 50% { opacity: 1; } }
-.reveal { opacity: 0; transform: translateY(28px); transition: all .65s cubic-bezier(.22,1,.36,1); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: .08s; } .reveal-d2 { transition-delay: .16s; }
-.reveal-d3 { transition-delay: .24s; } .reveal-d4 { transition-delay: .32s; }
+::selection { background: rgba(29,78,216,0.16); }
 
-/* Nav */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: all .35s ease; }
-nav.scrolled { background: rgba(9,9,11,0.88); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--border); }
-.nav-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 60px; padding: 0 40px; }
-.nav-logo { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: var(--accent); letter-spacing: -.03em; }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a { font-size: 12.5px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--text-d); transition: color .25s; }
-.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-/* Section heads */
-.sh { display: flex; align-items: center; gap: 14px; margin-bottom: 48px; }
-.sh-num { font-family: var(--font-m); font-size: 13px; color: var(--accent); font-weight: 500; }
-.sh h2 { font-family: var(--font-h); font-size: 32px; font-weight: 800; letter-spacing: -.03em; }
-.sh-line { flex: 1; height: 1px; background: var(--border); margin-left: 12px; }
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all .65s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
 
-/* Hero */
-#about { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0 40px; }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 64px 64px; opacity: .25; mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent); pointer-events: none; }
-.hero-content { max-width: 1120px; margin: 0 auto; width: 100%; position: relative; z-index: 1; animation: fadeUp .9s ease-out; }
-.hero-status { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
-.hero-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2.5s infinite; }
-.hero-label { font-size: 12px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); }
-.hero-h1 { font-family: var(--font-h); font-size: clamp(40px, 5.5vw, 72px); font-weight: 800; line-height: 1.08; letter-spacing: -.04em; margin-bottom: 28px; max-width: 720px; }
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all .3s ease;
+}
+nav.scrolled {
+  background: rgba(248,250,252,0.9);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid rgba(216,224,234,0.8);
+}
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+  padding: 0 32px;
+}
+.nav-logo {
+  font-family: var(--font-h);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+.nav-links {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  transition: color .2s ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--accent); }
+
+.section {
+  padding: 96px 32px;
+}
+.section-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.section-alt {
+  background: transparent;
+}
+
+.sh {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 42px;
+}
+.sh-num {
+  font-family: var(--font-m);
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.sh h2 {
+  font-family: var(--font-h);
+  font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.sh-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 12px;
+}
+
+#about {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 32px;
+  overflow: hidden;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(229,234,241,0.7) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(229,234,241,0.7) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: .42;
+  mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, black, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, black, transparent);
+  pointer-events: none;
+}
+.hero-content {
+  max-width: 1160px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp .9s ease-out;
+}
+.hero-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 28px;
+  align-items: stretch;
+}
+.hero-main,
+.hero-side {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(216,224,234,0.75);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+}
+.hero-main {
+  padding: 42px;
+}
+.hero-side {
+  padding: 28px;
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+}
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+.hero-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hero-h1 {
+  font-family: var(--font-h);
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
+  font-weight: 800;
+  line-height: 1.03;
+  letter-spacing: -0.06em;
+  margin-bottom: 22px;
+  max-width: 760px;
+}
 .hero-h1 .accent { color: var(--accent); }
-.hero-p1 { font-size: 17px; line-height: 1.75; color: var(--text-s); max-width: 640px; margin-bottom: 20px; }
-.hero-p2 { font-size: 15px; line-height: 1.7; color: var(--text-d); max-width: 640px; margin-bottom: 40px; }
+.hero-p1 {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px,1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.mc {
+  padding: 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+.mc-label {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.mc-value {
+  font-family: var(--font-m);
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-p,
+.btn-o {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: all .2s ease;
+}
+.btn-p {
+  background: var(--text);
+  color: #fff;
+  border: 1px solid var(--text);
+}
+.btn-p:hover { transform: translateY(-1px); }
+.btn-o {
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-soft);
+}
+.btn-o:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+.info-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.info-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.info-card p {
+  font-size: 0.94rem;
+  color: var(--text-soft);
+}
 
-/* Metric cards */
-.metrics { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
-.mc { padding: 16px 24px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); transition: all .25s; cursor: default; min-width: 130px; }
-.mc:hover { border-color: var(--accent-b); background: var(--accent-dim); }
-.mc-label { font-size: 10.5px; color: var(--text-d); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
-.mc-value { font-family: var(--font-m); font-size: 20px; font-weight: 700; color: var(--text); }
+.tl-item {
+  padding: 30px 0 30px 28px;
+  border-left: 2px solid var(--border-strong);
+  position: relative;
+}
+.tl-dot {
+  position: absolute;
+  left: -6px;
+  top: 38px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--accent);
+}
+.tl-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.tl-company {
+  font-family: var(--font-h);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.tl-role {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.tl-period {
+  font-family: var(--font-m);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+.tl-bullets { display: grid; gap: 8px; }
+.bl {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.bl-dot {
+  color: var(--accent);
+  font-size: 0.7rem;
+  margin-top: 9px;
+  flex-shrink: 0;
+}
+.bl p {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
 
-/* Buttons */
-.hero-btns { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-.btn-p { padding: 13px 30px; background: var(--accent); color: var(--bg); border-radius: 8px; font-size: 13.5px; font-weight: 700; font-family: var(--font-h); letter-spacing: .03em; transition: opacity .2s; }
-.btn-p:hover { opacity: .85; }
-.btn-o { padding: 13px 24px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--text-s); transition: all .2s; }
-.btn-o:hover { border-color: var(--accent-b); color: var(--accent); }
+.pg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.pl { display: block; }
+.pc {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  box-shadow: var(--shadow-soft);
+  transition: all .25s ease;
+}
+.pl:hover .pc {
+  transform: translateY(-3px);
+  border-color: var(--accent-border);
+}
+.pt, .pm, .scs, .cc-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pt span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+.pn {
+  font-family: var(--font-h);
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.pd {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+  flex: 1;
+}
+.pm span,
+.chip {
+  font-family: var(--font-m);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--text-soft);
+  border: 1px solid var(--border);
+}
 
-/* Sections */
-.section { padding: 100px 40px; }
-.section-inner { max-width: 1120px; margin: 0 auto; }
-.section-alt { background: var(--surface); }
+.sg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.sc {
+  font-family: var(--font-h);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
 
-/* Timeline */
-.tl-item { padding: 32px 0 32px 28px; border-left: 2px solid var(--border); position: relative; transition: border-color .3s; }
-.tl-item:hover { border-left-color: var(--accent); }
-.tl-dot { position: absolute; left: -5px; top: 38px; width: 8px; height: 8px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
-.tl-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-.tl-company { font-family: var(--font-h); font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-.tl-role { font-size: 14px; color: var(--accent); font-weight: 500; }
-.tl-period { font-family: var(--font-m); font-size: 12px; color: var(--text-d); flex-shrink: 0; }
-.tl-bullets { display: flex; flex-direction: column; gap: 8px; }
-.bl { display: flex; gap: 10px; align-items: flex-start; }
-.bl-dot { color: var(--accent-b); font-size: 7px; margin-top: 8px; flex-shrink: 0; }
-.bl p { font-size: 14px; line-height: 1.7; color: var(--text-s); }
+.eg {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.ec,
+.bc {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+.ec-yr {
+  font-family: var(--font-m);
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.ec-deg {
+  font-family: var(--font-h);
+  font-size: 1.02rem;
+  font-weight: 800;
+  margin: 10px 0 6px;
+  line-height: 1.4;
+}
+.ec-sch {
+  color: var(--text-soft);
+  font-size: 0.94rem;
+}
 
-/* Projects */
-.pg { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.pc { padding: 28px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg); display: flex; flex-direction: column; height: 100%; transition: all .3s; }
-a.pl { display: block; height: 100%; }
-a.pl:hover .pc { border-color: var(--accent-b); transform: translateY(-3px); }
-a.pl:hover .pn { color: var(--accent); }
-.pt { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-.pt span { font-size: 10.5px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--accent-dim); color: var(--accent); letter-spacing: .02em; }
-.pn { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35; transition: color .25s; }
-.pn .arrow { font-size: 13px; opacity: .4; }
-.pd { font-size: 13.5px; line-height: 1.65; color: var(--text-d); flex: 1; margin-bottom: 16px; }
-.pm { display: flex; gap: 8px; flex-wrap: wrap; }
-.pm span { font-family: var(--font-m); font-size: 11px; font-weight: 500; padding: 5px 10px; border-radius: 6px; background: var(--surface-l); color: var(--text-s); border: 1px solid var(--border); }
+.bg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.bc h3 {
+  font-family: var(--font-h);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.bc p {
+  font-size: 0.96rem;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
 
-/* Skills */
-.sg { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
-.sc { font-family: var(--font-h); font-size: 12.5px; font-weight: 700; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
-.scs { display: flex; flex-wrap: wrap; gap: 7px; }
-.chip { font-size: 12.5px; font-weight: 500; padding: 7px 14px; border-radius: 7px; background: var(--surface); border: 1px solid var(--border); color: var(--text-s); transition: all .2s; cursor: default; }
-.chip:hover { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-b); }
-
-/* Education */
-.eg { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-.ec { padding: 28px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg); }
-.ec-yr { font-family: var(--font-m); font-size: 13px; color: var(--accent); font-weight: 500; }
-.ec-deg { font-family: var(--font-h); font-size: 16px; font-weight: 700; margin: 10px 0 6px; color: var(--text); line-height: 1.35; }
-.ec-sch { font-size: 13.5px; color: var(--text-d); line-height: 1.5; }
-
-/* Beyond */
-.bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.bc { padding: 28px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); transition: border-color .3s; }
-.bc:hover { border-color: var(--accent-b); }
-.bc h3 { font-family: var(--font-h); font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
-.bc p { font-size: 14px; color: var(--text-s); line-height: 1.7; }
-
-/* Contact */
-.cc { text-align: center; }
-.cc h2 { font-family: var(--font-h); font-size: 40px; font-weight: 800; margin: 14px 0 18px; letter-spacing: -.03em; }
-.cc > p { font-size: 16px; color: var(--text-d); max-width: 540px; margin: 0 auto 36px; line-height: 1.7; }
-.cc-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
-.cc-links { display: flex; justify-content: center; gap: 28px; }
-.cc-links a { font-size: 13px; color: var(--text-d); letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
+.cc {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+.cc h2 {
+  font-family: var(--font-h);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin: 10px 0 16px;
+  letter-spacing: -0.04em;
+}
+.cc > p {
+  font-size: 1rem;
+  color: var(--text-soft);
+  max-width: 720px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+}
+.cc-btns {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.cc-links {
+  justify-content: center;
+}
+.cc-links a {
+  font-size: 0.84rem;
+  color: var(--text-faint);
+  font-weight: 600;
+}
 .cc-links a:hover { color: var(--accent); }
 
-/* Footer */
-footer { padding: 28px 40px; border-top: 1px solid var(--border); text-align: center; }
-footer p { font-size: 11.5px; color: var(--text-d); letter-spacing: .03em; }
+footer {
+  padding: 28px 32px 46px;
+  text-align: center;
+}
+footer p {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
 
-/* Responsive */
+@media (max-width: 960px) {
+  .hero-wrap,
+  .pg,
+  .sg,
+  .eg,
+  .bg-grid,
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .pg, .sg, .bg-grid { grid-template-columns: 1fr; }
-  .eg { grid-template-columns: 1fr; }
-  .metrics { flex-direction: column; }
-  .section { padding: 60px 20px; }
-  .nav-inner { padding: 0 20px; }
+  .section { padding: 68px 20px; }
   #about { padding: 0 20px; }
-  .hero-h1 { font-size: 36px; }
-  .sh h2 { font-size: 24px; }
+  .nav-inner { padding: 0 20px; }
+  .hero-main,
+  .hero-side,
+  .pc,
+  .ec,
+  .bc { padding: 22px; }
+  .hero-h1 { font-size: 2.5rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#about" class="nav-logo">Sunidhi Sharma</a>
@@ -170,35 +579,47 @@ footer p { font-size: 11.5px; color: var(--text-d); letter-spacing: .03em; }
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="about">
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-status">
-      <div class="hero-dot"></div>
-      <span class="hero-label">Open to Opportunities</span>
-    </div>
-    <h1 class="hero-h1">
-      <span>Data Scientist</span><br>
-      <span class="accent">People Analytics</span>
-    </h1>
-    <p class="hero-p1">I turn workforce data into decisions that move business outcomes. With 5+ years of applied experience in People Analytics, I specialize in building experimentation frameworks, causal inference pipelines, and predictive systems that help organizations hire faster, retain better, and plan smarter.</p>
-    <p class="hero-p2">My work has delivered a 25% reduction in time-to-fill through causal methods, a 12% drop in attrition through predictive intervention, and 85% accuracy in workforce forecasting. I bring equal depth in general data science, ML engineering, and statistical modeling.</p>
-    <div class="metrics">
-      <div class="mc"><div class="mc-label">Time-to-Fill</div><div class="mc-value">-25%</div></div>
-      <div class="mc"><div class="mc-label">Attrition Reduced</div><div class="mc-value">-12%</div></div>
-      <div class="mc"><div class="mc-label">Forecast Accuracy</div><div class="mc-value">85%</div></div>
-      <div class="mc"><div class="mc-label">Years Experience</div><div class="mc-value">5+</div></div>
-    </div>
-    <div class="hero-btns">
-      <a href="mailto:sharmasunidhi2895@gmail.com" class="btn-p">Get in Touch</a>
-      <a href="https://www.linkedin.com/in/sunidhisharma28/" target="_blank" class="btn-o">LinkedIn</a>
-      <a href="https://github.com/sunidhi-analytics" target="_blank" class="btn-o">GitHub</a>
+    <div class="hero-wrap">
+      <div class="hero-main">
+        <div class="hero-status">
+          <div class="hero-dot"></div>
+          <span class="hero-label">Open to Opportunities</span>
+        </div>
+        <h1 class="hero-h1">Data Scientist for <span class="accent">People Analytics</span> and workforce strategy.</h1>
+        <p class="hero-p1">I turn workforce and talent data into decisions that improve hiring, retention, and planning. With 5+ years of experience across People Analytics, experimentation, causal inference, and predictive modeling, I build analytical solutions that help organizations make better people decisions with clarity and confidence.</p>
+        <div class="metrics">
+          <div class="mc"><div class="mc-label">Time-to-Fill</div><div class="mc-value">-25%</div></div>
+          <div class="mc"><div class="mc-label">Attrition Reduced</div><div class="mc-value">-12%</div></div>
+          <div class="mc"><div class="mc-label">Forecast Accuracy</div><div class="mc-value">85%</div></div>
+          <div class="mc"><div class="mc-label">Experience</div><div class="mc-value">5+ yrs</div></div>
+        </div>
+        <div class="hero-btns">
+          <a href="mailto:sharmasunidhi2895@gmail.com" class="btn-p">Get in Touch</a>
+          <a href="https://www.linkedin.com/in/sunidhisharma28/" target="_blank" class="btn-o">LinkedIn</a>
+          <a href="https://github.com/sunidhi-analytics" target="_blank" class="btn-o">GitHub</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <div class="info-card">
+          <h3>Professional Focus</h3>
+          <p>People Analytics, Talent Analytics, Recruiting Analytics, experimentation, forecasting, and decision support for workforce strategy.</p>
+        </div>
+        <div class="info-card">
+          <h3>Current Program</h3>
+          <p>MS in Business Analytics, University of Cincinnati.</p>
+        </div>
+        <div class="info-card">
+          <h3>Strength</h3>
+          <p>Blending statistical rigor with stakeholder-ready storytelling and measurable business impact.</p>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="section">
   <div class="section-inner">
     <div class="sh reveal"><span class="sh-num">01</span><h2>Professional Experience</h2><div class="sh-line"></div></div>
@@ -207,11 +628,9 @@ footer p { font-size: 11.5px; color: var(--text-d); letter-spacing: .03em; }
       <div class="tl-dot"></div>
       <div class="tl-head"><div><div class="tl-company">Publicis Sapient</div><div class="tl-role">Associate Data Scientist, People & Recruiting Analytics</div></div><span class="tl-period">Feb 2025 – Jul 2025</span></div>
       <div class="tl-bullets">
-        <div class="bl"><span class="bl-dot">●</span><p>Led People Analytics workstreams across the full talent lifecycle: hiring forecasting, workforce diversity measurement, recruiter capacity planning, offer conversion optimization, and attrition risk across AI & Cloud hiring portfolios.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Designed and executed A/B tests and difference-in-differences analyses on sourcing strategies and interview workflows using Python and SQL on Workday ATS data; causal inference findings led to policy reforms that reduced time-to-fill by 25%.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Built pandas-based attrition forecasting model predicting quarterly attrition rates with 85% accuracy, enabling proactive headcount planning that reduced emergency hiring by 30%.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Operationalized a 15+ metric People Analytics measurement framework; automated Tableau dashboards integrating Workday HRIS data for weekly executive stakeholder reviews.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Supported responsible AI in HR by documenting bias testing protocols for recruiting automation tools; assessed algorithmic fairness via feature importance analysis; created human oversight guidelines reviewed by Legal and HR leadership.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Led analytics work across hiring forecasting, recruiter capacity planning, diversity measurement, offer conversion, and attrition risk for AI and Cloud hiring portfolios.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Designed A/B tests and difference-in-differences analyses on sourcing strategies and interview workflows using Python and SQL, contributing to process changes that reduced time-to-fill by 25%.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Built attrition forecasting models and automated executive dashboards to support proactive workforce planning and weekly stakeholder reviews.</p></div>
       </div>
     </div>
 
@@ -219,11 +638,8 @@ footer p { font-size: 11.5px; color: var(--text-d); letter-spacing: .03em; }
       <div class="tl-dot"></div>
       <div class="tl-head"><div><div class="tl-company">Korn Ferry</div><div class="tl-role">Research Data Scientist, Talent Analytics & Executive Search Intelligence</div></div><span class="tl-period">Feb 2024 – Feb 2025</span></div>
       <div class="tl-bullets">
-        <div class="bl"><span class="bl-dot">●</span><p>Delivered People Analytics support for executive search engagements across technology, finance, and healthcare, translating complex workforce data into strategic hiring recommendations for C-suite decisions.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Developed predictive models for executive hiring success and retention risk using decision trees and regularized logistic regression on 3,000+ candidate profiles.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Conducted SQL-based funnel diagnostics on executive search pipelines; process optimization reduced average executive search cycle time by 30%.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Built sourcing channel effectiveness models analyzing conversion rates, time-to-hire, and candidate quality across 5+ channels; ROI scoring informed talent mapping strategies.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Delivered rapid-turnaround workforce intelligence, benchmarking 200+ executive profiles across 15 urgent engagements within 24 to 48 hour windows.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Translated complex workforce and talent data into strategic hiring recommendations for executive search engagements across multiple industries.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Built predictive models for executive hiring success and retention risk, and conducted funnel diagnostics to improve search cycle efficiency.</p></div>
       </div>
     </div>
 
@@ -231,125 +647,117 @@ footer p { font-size: 11.5px; color: var(--text-d); letter-spacing: .03em; }
       <div class="tl-dot"></div>
       <div class="tl-head"><div><div class="tl-company">Infosys</div><div class="tl-role">Senior Data Analyst, People Analytics & Workforce Intelligence</div></div><span class="tl-period">Mar 2021 – Feb 2024</span></div>
       <div class="tl-bullets">
-        <div class="bl"><span class="bl-dot">●</span><p>Developed logistic regression flight-risk models on 20,000 employee records; operationalized risk scores into retention playbooks with HR partners, reducing attrition by 12%.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Built compensation benchmarking and offer optimization models across 15+ business units; regression analysis on salary elasticity improved offer conversion rates by 11%.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Analyzed recruiter workload distribution across 200+ recruiters; recommended reallocation strategies that improved team productivity by 18%.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Conducted statistical analysis on candidate drop-off rates using chi-square tests; identified funnel bottlenecks that reduced average time-to-offer by 22 days.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Developed flight-risk models, compensation analytics, and recruiter workload insights across large employee datasets to support retention and hiring decisions.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Used regression and statistical analysis to improve offer conversion, identify funnel bottlenecks, and strengthen workforce planning decisions.</p></div>
       </div>
     </div>
 
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
-      <div class="tl-head"><div><div class="tl-company">Tata Consultancy Services (TCS)</div><div class="tl-role">Senior Associate Lead, Talent Acquisition Analytics & Workforce Planning</div></div><span class="tl-period">Aug 2020 – Mar 2021</span></div>
+      <div class="tl-head"><div><div class="tl-company">Tata Consultancy Services</div><div class="tl-role">Senior Associate Lead, Talent Acquisition Analytics & Workforce Planning</div></div><span class="tl-period">Aug 2020 – Mar 2021</span></div>
       <div class="tl-bullets">
-        <div class="bl"><span class="bl-dot">●</span><p>Analyzed 12,000 employee records across 4 delivery centers to evaluate onsite/offshore workforce distribution; recommendations reduced onsite staffing costs by 10 to 12%.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Conducted t-test comparisons of productivity metrics across 2,500+ onsite and 9,500+ offshore employees, informing staffing policy revisions.</p></div>
-        <div class="bl"><span class="bl-dot">●</span><p>Built SQL reporting infrastructure tracking 5,000+ monthly hiring activities; automated Tableau dashboards for real-time visibility into requisition aging, time-to-fill, and offer acceptance rates.</p></div>
+        <div class="bl"><span class="bl-dot">●</span><p>Built reporting infrastructure and dashboarding for large-scale hiring activity, workforce distribution analysis, and staffing policy decisions.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="section section-alt">
   <div class="section-inner">
-    <div class="sh reveal"><span class="sh-num">02</span><h2>Portfolio Projects</h2><div class="sh-line"></div></div>
+    <div class="sh reveal"><span class="sh-num">02</span><h2>Selected Projects</h2><div class="sh-line"></div></div>
     <div class="pg">
       <a href="https://github.com/sunidhi-analytics/attrition-fairness-audit" target="_blank" class="pl reveal">
         <div class="pc">
-          <div class="pt"><span>Survival Analysis</span><span>Cox PH</span><span>SHAP</span><span>XGBoost</span><span>Fairness</span></div>
-          <div class="pn">Employee Attrition Early Warning System & Fairness Audit <span class="arrow">↗</span></div>
-          <div class="pd">End-to-end People Analytics system using Kaplan-Meier survival curves and Cox Proportional Hazards regression to model when employees leave, not just whether they will. Includes a deployable risk scoring system with per-employee intervention recommendations and a full algorithmic fairness audit with disparate impact testing and bias mitigation.</div>
-          <div class="pm"><span>85% forecast accuracy</span><span>C-index 0.78</span><span>9x risk stratification</span></div>
+          <div class="pt"><span>Survival Analysis</span><span>Fairness</span><span>XGBoost</span></div>
+          <div class="pn">Employee Attrition Early Warning System</div>
+          <div class="pd">An end-to-end People Analytics project using survival analysis and risk scoring to identify when employees are likely to leave, paired with an algorithmic fairness audit and intervention recommendations.</div>
+          <div class="pm"><span>C-index 0.78</span><span>Risk tiers</span><span>Fairness audit</span></div>
         </div>
       </a>
+
       <a href="https://github.com/sunidhi-analytics/causal-inference-hr" target="_blank" class="pl reveal reveal-d1">
         <div class="pc">
-          <div class="pt"><span>Propensity Score Matching</span><span>Diff-in-Diff</span><span>HTE</span><span>Sensitivity Analysis</span></div>
-          <div class="pn">Causal Inference for HR Interventions <span class="arrow">↗</span></div>
-          <div class="pd">Quasi-experimental evaluation of a manager training program's causal effect on team attrition using propensity score matching and difference-in-differences. Demonstrates that naive comparisons overstate impact by 2x, and identifies which departments benefit most through heterogeneous treatment effect analysis.</div>
-          <div class="pm"><span>4pp causal effect</span><span>2x bias correction</span><span>$57K ROI per manager</span></div>
+          <div class="pt"><span>PSM</span><span>Diff-in-Diff</span><span>Causal Inference</span></div>
+          <div class="pn">Causal Inference for HR Interventions</div>
+          <div class="pd">A quasi-experimental evaluation of manager training and employee outcomes using matching and difference-in-differences to estimate real business impact and reduce bias in naive comparisons.</div>
+          <div class="pm"><span>4pp effect</span><span>ROI analysis</span><span>Bias correction</span></div>
         </div>
       </a>
+
       <a href="https://github.com/sunidhi-analytics/workforce-demand-forecasting" target="_blank" class="pl reveal reveal-d2">
         <div class="pc">
-          <div class="pt"><span>SARIMA</span><span>Prophet</span><span>Time Series</span><span>Cross-Validation</span></div>
-          <div class="pn">Workforce Demand Forecasting <span class="arrow">↗</span></div>
-          <div class="pd">Quarterly headcount forecasting using ARIMA, Prophet, and ensemble models with rolling-window cross-validation. Designed to support workforce planning teams in predicting hiring demand and aligning recruiter capacity with business needs.</div>
-          <div class="pm"><span>5.1% MAPE</span><span>Ensemble approach</span><span>Backtested</span></div>
+          <div class="pt"><span>SARIMA</span><span>Prophet</span><span>Forecasting</span></div>
+          <div class="pn">Workforce Demand Forecasting</div>
+          <div class="pd">Quarterly headcount forecasting with rolling validation and model comparison to support hiring demand projections and recruiter capacity planning.</div>
+          <div class="pm"><span>5.1% MAPE</span><span>Backtested</span><span>Ensemble</span></div>
         </div>
       </a>
+
       <a href="https://github.com/sunidhi-analytics/people-analytics-survival-analysis" target="_blank" class="pl reveal reveal-d3">
         <div class="pc">
-          <div class="pt"><span>Streamlit</span><span>Plotly</span><span>Claude API</span><span>NLP</span></div>
-          <div class="pn">People Analytics Dashboard with AI Assistant <span class="arrow">↗</span></div>
-          <div class="pd">Interactive workforce attrition dashboard deployed on Streamlit featuring survival curves, hazard ratio visualizations, risk-tiered watchlists, and a Claude-powered AI chatbot that answers natural language questions about the data with contextual follow-up suggestions.</div>
-          <div class="pm"><span>5 interactive tabs</span><span>AI-powered Q&A</span><span>Live on Streamlit</span></div>
+          <div class="pt"><span>Streamlit</span><span>Plotly</span><span>AI Assistant</span></div>
+          <div class="pn">People Analytics Dashboard with AI Assistant</div>
+          <div class="pd">An interactive dashboard for workforce analytics with survival curves, risk watchlists, visual storytelling, and natural-language Q&A for stakeholders.</div>
+          <div class="pm"><span>Interactive tabs</span><span>Stakeholder-ready</span><span>Live demo</span></div>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="section">
   <div class="section-inner">
     <div class="sh reveal"><span class="sh-num">03</span><h2>Technical Skills</h2><div class="sh-line"></div></div>
     <div class="sg">
-      <div class="reveal"><div class="sc">People Analytics & HRIS</div><div class="scs"><span class="chip">Workday ATS</span><span class="chip">Employee Lifecycle Analytics</span><span class="chip">Workforce Planning</span><span class="chip">Attrition Modeling</span><span class="chip">DEI Measurement</span><span class="chip">Compensation Analytics</span><span class="chip">Engagement Analytics</span><span class="chip">Talent Analytics</span></div></div>
-      <div class="reveal reveal-d1"><div class="sc">Experimentation & Causal Inference</div><div class="scs"><span class="chip">A/B Testing</span><span class="chip">CUPED Variance Reduction</span><span class="chip">Propensity Score Matching</span><span class="chip">Diff-in-Diff</span><span class="chip">Double ML</span><span class="chip">Uplift Modeling</span><span class="chip">Heterogeneous Treatment Effects</span><span class="chip">Causal Impact Analysis</span></div></div>
-      <div class="reveal reveal-d2"><div class="sc">ML & Statistical Modeling</div><div class="scs"><span class="chip">Logistic Regression</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">Random Forest</span><span class="chip">Survival Analysis</span><span class="chip">Time-Series Forecasting</span><span class="chip">Bayesian Inference</span><span class="chip">SHAP</span><span class="chip">LIME</span></div></div>
-      <div class="reveal reveal-d3"><div class="sc">Programming & Infrastructure</div><div class="scs"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">PySpark</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">AWS (S3, SageMaker, Lambda)</span><span class="chip">Azure ML</span><span class="chip">Docker</span><span class="chip">MLflow</span><span class="chip">Airflow</span><span class="chip">Git</span></div></div>
-      <div class="reveal reveal-d4"><div class="sc">Generative AI & NLP</div><div class="scs"><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">Hugging Face Transformers</span><span class="chip">Embeddings</span><span class="chip">Vector Databases (FAISS, Pinecone)</span><span class="chip">Prompt Engineering</span></div></div>
-      <div class="reveal"><div class="sc">Visualization & Storytelling</div><div class="scs"><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Plotly</span><span class="chip">Streamlit</span><span class="chip">Qlik</span><span class="chip">Looker</span><span class="chip">Executive Data Narratives</span><span class="chip">KPI & OKR Governance</span></div></div>
+      <div class="reveal"><div class="sc">People Analytics & HR Data</div><div class="scs"><span class="chip">Workday</span><span class="chip">Talent Analytics</span><span class="chip">Attrition Modeling</span><span class="chip">Workforce Planning</span><span class="chip">Recruiting Analytics</span><span class="chip">Compensation Analytics</span></div></div>
+      <div class="reveal reveal-d1"><div class="sc">Experimentation & Causal Inference</div><div class="scs"><span class="chip">A/B Testing</span><span class="chip">Propensity Score Matching</span><span class="chip">Difference-in-Differences</span><span class="chip">Sensitivity Analysis</span><span class="chip">HTE</span></div></div>
+      <div class="reveal reveal-d2"><div class="sc">Modeling & Statistics</div><div class="scs"><span class="chip">Logistic Regression</span><span class="chip">Survival Analysis</span><span class="chip">Forecasting</span><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">Statistical Testing</span></div></div>
+      <div class="reveal reveal-d3"><div class="sc">Tools</div><div class="scs"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">GitHub</span><span class="chip">Streamlit</span><span class="chip">Quarto</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education" class="section section-alt">
   <div class="section-inner">
     <div class="sh reveal"><span class="sh-num">04</span><h2>Education</h2><div class="sh-line"></div></div>
     <div class="eg">
-      <div class="ec reveal"><span class="ec-yr">2026</span><div class="ec-deg">MS in Business Analytics (STEM)</div><div class="ec-sch">University of Cincinnati, Carl H. Lindner College of Business</div></div>
+      <div class="ec reveal"><span class="ec-yr">2026</span><div class="ec-deg">MS in Business Analytics</div><div class="ec-sch">University of Cincinnati, Carl H. Lindner College of Business</div></div>
       <div class="ec reveal reveal-d1"><span class="ec-yr">2020</span><div class="ec-deg">Master of Business Administration</div><div class="ec-sch">University Business School, Punjab University</div></div>
       <div class="ec reveal reveal-d2"><span class="ec-yr">2018</span><div class="ec-deg">Bachelor of Engineering</div><div class="ec-sch">Dr. SSB UICET, Punjab University</div></div>
     </div>
   </div>
 </section>
 
-<!-- BEYOND THE DATA -->
 <section class="section">
   <div class="section-inner">
     <div class="sh reveal"><span class="sh-num">05</span><h2>Beyond the Data</h2><div class="sh-line"></div></div>
     <div class="bg-grid">
       <div class="bc reveal">
-        <h3>Reading & Continuous Learning</h3>
-        <p>I read broadly across People Analytics research, behavioral science, and business strategy. Staying current with SIOP publications, ML research, and books on organizational design keeps my analytical work grounded in both theory and practice. Currently completing my MS in Business Analytics at the University of Cincinnati, graduating 2026.</p>
+        <h3>Continuous Learning</h3>
+        <p>I enjoy deepening my understanding of People Analytics, behavioral science, and applied machine learning, and I regularly turn academic and professional work into portfolio-ready projects.</p>
       </div>
       <div class="bc reveal reveal-d1">
-        <h3>Boxing</h3>
-        <p>Boxing is my reset. It demands the same kind of discipline that data work does: focus, pattern recognition, and quick adaptation. Stepping into the ring is the most effective way I know to clear my head and come back sharper. It has taught me a lot about staying calm under pressure and trusting the process.</p>
+        <h3>Teaching & Mentorship</h3>
+        <p>As a teaching assistant and peer mentor, I enjoy explaining analytical ideas clearly and helping others connect technical methods to real decision-making.</p>
       </div>
       <div class="bc reveal reveal-d2">
-        <h3>Hiking & the Outdoors</h3>
-        <p>Living in the Bay Area means access to some incredible trails. I hike regularly to disconnect from screens and reconnect with a different kind of problem-solving. There is something about a long trail that puts work challenges into perspective. Some of my best ideas for projects have come on hikes.</p>
+        <h3>Boxing</h3>
+        <p>Boxing keeps me disciplined, focused, and calm under pressure. It gives me the same clarity and structure that I value in analytical work.</p>
       </div>
       <div class="bc reveal reveal-d3">
-        <h3>Mentorship & Teaching</h3>
-        <p>Teaching Assistant in the Department of Business Analytics at the University of Cincinnati, mentoring undergraduate and graduate students through end-to-end data modeling and experimentation workflows. I also organize peer learning sessions and ML paper discussions within data science teams. The best way to deepen understanding is to teach it.</p>
+        <h3>Outdoors</h3>
+        <p>Hiking and time outdoors help me reset, think strategically, and come back to complex problems with a clearer perspective.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="section section-alt">
   <div class="section-inner cc">
     <div class="reveal">
       <span class="sh-num">06</span>
-      <h2>Let's Talk</h2>
-      <p>I am actively looking for People Analytics, Senior Data Scientist, and Analytics leadership roles. If you are building a data-driven HR function or need someone who bridges analytics and business impact, I would love to connect.</p>
+      <h2>Let’s Connect</h2>
+      <p>I’m actively looking for opportunities in People Analytics, Data Science, Workforce Analytics, and related roles where I can combine statistical depth, business understanding, and strong stakeholder communication.</p>
       <div class="cc-btns">
         <a href="mailto:sharmasunidhi2895@gmail.com" class="btn-p">sharmasunidhi2895@gmail.com</a>
         <a href="tel:+14156046608" class="btn-o">+1 415 604 6608</a>
@@ -362,39 +770,28 @@ footer p { font-size: 11.5px; color: var(--text-d); letter-spacing: .03em; }
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>San Francisco, CA · © 2026 Sunidhi Sharma</p>
+  <p>© 2026 Sunidhi Sharma</p>
 </footer>
 
-<!-- JAVASCRIPT -->
 <script>
-// Scroll-triggered reveal animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.08 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Navbar scroll effect + active section tracking
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('section[id]');
 
 window.addEventListener('scroll', () => {
-  // Nav background
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-
-  // Active section
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
   let current = '';
   sections.forEach(section => {
-    if (section.getBoundingClientRect().top <= 180) {
-      current = section.id;
-    }
+    if (section.getBoundingClientRect().top <= 180) current = section.id;
   });
   navLinks.forEach(link => {
     link.classList.toggle('active', link.getAttribute('data-section') === current);
