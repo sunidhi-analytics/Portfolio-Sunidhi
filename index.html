@@ -58,9 +58,13 @@ img { max-width: 100%; display: block; }
 }
 
 .reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+}
+.reveal.animate-on-scroll {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .d1 { transition-delay: .08s; }
@@ -90,11 +94,14 @@ nav.scrolled {
   padding: 0 32px;
 }
 .nav-logo {
-  font-family: var(--font-h);
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--text);
+  font-family: var(--font-m);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.08em;
+  border: 1.5px solid var(--navy);
+  padding: 4px 10px;
+  border-radius: 4px;
 }
 .nav-links {
   display: flex;
@@ -131,13 +138,23 @@ nav.scrolled {
 
 /* ─── HERO ─── */
 #hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
-  align-items: center;
-  padding: 100px 32px 80px;
+  align-items: flex-start;
+  padding: 110px 32px 48px;
   position: relative;
   overflow: hidden;
 }
+.hero-name {
+  font-family: var(--font-h);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -174,7 +191,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 .hero-eyebrow-dot {
   width: 8px; height: 8px;
@@ -285,6 +302,36 @@ nav.scrolled {
 .btn-terra:hover { background: rgba(184,92,56,0.15); transform: translateY(-1px); }
 
 
+
+.contact-popup-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.contact-popup {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 14px 20px;
+  z-index: 50;
+  min-width: 280px;
+  flex-direction: column;
+  gap: 10px;
+  overflow: visible;
+}
+.contact-popup.show { display: flex; }
+.contact-popup a {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  font-weight: 500;
+  display: block;
+  transition: color .2s;
+}
+.contact-popup a:hover { color: var(--navy); }
 
 /* ─── SECTION COMMONS ─── */
 .section {
@@ -420,9 +467,13 @@ nav.scrolled {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-wrap: nowrap;
+  gap: 16px;
   margin-bottom: 8px;
+}
+.exp-meta > div {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .exp-company {
   font-family: var(--font-h);
@@ -442,6 +493,7 @@ nav.scrolled {
   color: var(--text-faint);
   padding-top: 4px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .exp-summary {
   font-size: 0.97rem;
@@ -593,8 +645,8 @@ nav.scrolled {
 /* ─── EDUCATION ─── */
 .edu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 .edu-card {
   padding: 28px;
@@ -701,7 +753,7 @@ footer p {
 <!-- ─── NAV ─── -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Sunidhi Sharma</a>
+    <a href="#hero" class="nav-logo">↑ Top</a>
     <div class="nav-links">
       <a href="#about" data-section="about">About</a>
       <a href="#experience" data-section="experience">Experience</a>
@@ -720,6 +772,7 @@ footer p {
   <div class="hero-inner">
     <div class="hero-layout">
       <div class="hero-left">
+        <div class="hero-name">Sunidhi Sharma</div>
         <div class="hero-eyebrow">
           <div class="hero-eyebrow-dot"></div>
           <span>Based in San Francisco &nbsp;·&nbsp; Open to New Roles</span>
@@ -730,7 +783,7 @@ footer p {
         <p class="hero-p">
           Senior Data Scientist with 5+ years at the intersection of people, behavior, and statistics.
           I've built attrition models, designed workforce experiments, and shipped ML systems used by executive teams.
-          Whether the domain is People Analytics or product data science, I bring the same thing:
+          Whether the domain is People Analytics or Product Data Science, I bring the same thing:
           rigorous methods, clean code, and a clear story.
         </p>
         <div class="hero-targets">
@@ -738,10 +791,16 @@ footer p {
           <span class="target-pill terra"><span class="dot"></span>Data Science & Applied ML</span>
         </div>
         <div class="hero-btns">
-          <a href="mailto:sharmasunidhi2895@gmail.com" class="btn-primary">Get in Touch ↗</a>
+          <div class="contact-popup-wrap">
+            <button class="btn-primary" onclick="document.getElementById('contact-popup').classList.toggle('show')">Get in Touch ↗</button>
+            <div class="contact-popup" id="contact-popup">
+              <a href="mailto:sharmasunidhi2895@gmail.com">✉ sharmasunidhi2895@gmail.com</a>
+              <a href="tel:+14156046608">📞 +1 415 604 6608</a>
+            </div>
+          </div>
           <a href="https://www.linkedin.com/in/sunidhisharma28/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
-          <a href="https://github.com/sunidhi-analytics" target="_blank" class="btn-secondary">GitHub ↗</a>
           <a href="Sunidhi_Sharma_Resume_2026.pdf" download class="btn-terra">Resume ↓</a>
+          <a href="https://github.com/sunidhi-analytics" target="_blank" class="btn-secondary">GitHub ↗</a>
         </div>
       </div>
     </div>
@@ -760,20 +819,19 @@ footer p {
           workforce intelligence at Infosys, and I'm completing an MS in Business Analytics at the University of Cincinnati (2026).
         </p>
         <p>
-          I can run a PSM analysis and explain it to a CHRO the same afternoon. I build things that actually get used:
+          I can run a PSM analysis and explain it to leadership the same afternoon. I build things that actually get used:
           Tableau dashboards for executive reviews, flight-risk scores operationalized into retention playbooks,
-          A/B tested sourcing strategies with documented causal impact. I target both <strong>People Analytics</strong> and
-          <strong>general Data Science</strong> roles. The toolkit is the same; the domain is a choice.
+          A/B tested sourcing strategies with documented causal impact.
         </p>
       </div>
       <div class="about-card about-personal reveal d1">
         <h3>Beyond the Data <span class="tag tag-warm">Personal</span></h3>
         <p>
           Outside of work, I box, and I mean that seriously. The discipline, the structure under pressure,
-          the need to stay technical when you're tired: it maps onto data science in ways that still surprise me.
+          the need to stay technical when you're tired. It maps onto data science in ways that still surprise me.
         </p>
         <p>
-          I hike whenever the Bay Area weather cooperates (which is often enough). I read broadly:
+          I hike whenever the Bay Area weather cooperates (which is often enough). I read broadly,
           organizational behavior, behavioral economics, the occasional novel. I've been a teaching assistant and mentor at UC,
           and genuinely enjoy helping people build the instinct for good analytical judgment, not just the mechanics.
         </p>
@@ -857,9 +915,9 @@ footer p {
         <span class="exp-period">Mar 2021 to Feb 2024</span>
       </div>
       <p class="exp-summary">
-        Built and operationalized flight-risk scoring on 20,000 employee records; scores fed directly into
-        HR retention playbooks, reducing attrition by 12%. Built compensation benchmarking models across 15+ BUs;
-        salary elasticity analysis improved offer conversion by 11%. Ran recruiter workload analysis
+        Built and operationalized flight-risk scoring on 20,000 employee records. Scores fed directly into
+        HR retention playbooks, reducing attrition by 12%. Built compensation benchmarking models across 15+ BUs.
+        Salary elasticity analysis improved offer conversion by 11%. Ran recruiter workload analysis
         across 200+ recruiters, surfacing reallocation strategies that improved productivity by 18%.
       </p>
       <div class="exp-stats">
@@ -880,8 +938,8 @@ footer p {
         <span class="exp-period">Aug 2020 to Mar 2021</span>
       </div>
       <p class="exp-summary">
-        Analyzed 12,000 employee records across 4 delivery centers to model onsite/offshore cost structures;
-        recommendations reduced staffing costs by 10 to 12%. Built SQL reporting infrastructure tracking 5,000+ monthly
+        Analyzed 12,000 employee records across 4 delivery centers to model onsite/offshore cost structures.
+        Recommendations reduced staffing costs by 10 to 12%. Built SQL reporting infrastructure tracking 5,000+ monthly
         hiring activities with automated Tableau dashboards for requisition aging and offer acceptance tracking.
       </p>
       <div class="exp-stats">
@@ -979,7 +1037,7 @@ footer p {
         </div>
       </a>
 
-      <a href="https://github.com/sunidhi-analytics/ml-classification-pipeline" target="_blank" class="project-card reveal d4" style="grid-column: 1 / -1; max-width: 580px;">
+      <a href="https://github.com/sunidhi-analytics/ml-classification-pipeline" target="_blank" class="project-card reveal d4" style="grid-column: 1 / -1;">
         <span class="proj-arrow">↗</span>
         <div class="proj-tags">
           <span class="proj-tag">XGBoost</span>
@@ -1111,7 +1169,7 @@ footer p {
           I'd love to talk.
         </p>
         <div class="contact-btns">
-          <a href="mailto:sharmasunidhi2895@gmail.com" class="btn-primary">sharmasunidhi2895@gmail.com ↗</a>
+          <a href="/cdn-cgi/l/email-protection#483b20293a25293b3d26212c20217a70717d082f25292124662b2725" class="btn-primary"><span class="__cf_email__" data-cfemail="22514a43504f4351574c4b464a4b101a1b1762454f434b4e0c414d4f">[email&#160;protected]</span> ↗</a>
           <a href="Sunidhi_Sharma_Resume_2026.pdf" download class="btn-terra">Download Resume ↓</a>
         </div>
         <div class="contact-links">
@@ -1128,7 +1186,7 @@ footer p {
   <p>© 2026 Sunidhi Sharma &nbsp;·&nbsp; San Francisco, CA &nbsp;·&nbsp; Built with care</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1137,22 +1195,4 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Nav scroll state + active section
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-
-  let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
-  });
-  navLinks.forEach(link => {
-    link.classList.toggle('active', link.dataset.section === current);
-  });
-});
-</script>
-</body>
-</html>
+// Nav scroll sta
