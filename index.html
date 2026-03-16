@@ -147,7 +147,7 @@ nav.scrolled {
 }
 .hero-name {
   font-family: var(--font-h);
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 4vw, 3.6rem);
   font-weight: 700;
   line-height: 1;
   color: var(--text);
@@ -184,7 +184,7 @@ nav.scrolled {
   grid-template-columns: 1fr;
   gap: 48px;
   align-items: start;
-  max-width: 780px;
+  max-width: 960px;
   animation: fadeUp .95s ease-out;
 }
 .hero-eyebrow {
@@ -224,7 +224,7 @@ nav.scrolled {
   font-size: 1.08rem;
   line-height: 1.85;
   color: var(--text-soft);
-  max-width: 620px;
+  max-width: 100%;
   margin-bottom: 32px;
 }
 .hero-targets {
@@ -499,7 +499,7 @@ nav.scrolled {
   font-size: 0.97rem;
   color: var(--text-soft);
   line-height: 1.8;
-  max-width: 760px;
+  max-width: 100%;
   margin-bottom: 14px;
 }
 .exp-stats {
@@ -753,14 +753,13 @@ footer p {
 <!-- ─── NAV ─── -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">↑ Top</a>
+    <a href="#hero" class="nav-logo" style="visibility:hidden;width:0;padding:0;border:none;"></a>
     <div class="nav-links">
       <a href="#about" data-section="about">About</a>
       <a href="#experience" data-section="experience">Experience</a>
       <a href="#projects" data-section="projects">Projects</a>
       <a href="#skills" data-section="skills">Skills</a>
       <a href="#contact" data-section="contact">Contact</a>
-      <a href="Sunidhi_Sharma_Resume_2026.pdf" download class="nav-resume">Resume ↓</a>
     </div>
   </div>
 </nav>
@@ -794,7 +793,7 @@ footer p {
           <div class="contact-popup-wrap">
             <button class="btn-primary" onclick="document.getElementById('contact-popup').classList.toggle('show')">Get in Touch ↗</button>
             <div class="contact-popup" id="contact-popup">
-              <a href="mailto:sharmasunidhi2895@gmail.com">✉ sharmasunidhi2895@gmail.com</a>
+              <a href="/cdn-cgi/l/email-protection#a2d1cac3d0cfc3d1d7cccbc6cacb909a9b97e2c5cfc3cbce8cc1cdcf">✉ <span class="__cf_email__" data-cfemail="b4c7dcd5c6d9d5c7c1daddd0dcdd868c8d81f4d3d9d5ddd89ad7dbd9">[email&#160;protected]</span></a>
               <a href="tel:+14156046608">📞 +1 415 604 6608</a>
             </div>
           </div>
@@ -1169,7 +1168,7 @@ footer p {
           I'd love to talk.
         </p>
         <div class="contact-btns">
-          <a href="/cdn-cgi/l/email-protection#483b20293a25293b3d26212c20217a70717d082f25292124662b2725" class="btn-primary"><span class="__cf_email__" data-cfemail="22514a43504f4351574c4b464a4b101a1b1762454f434b4e0c414d4f">[email&#160;protected]</span> ↗</a>
+          <a href="mailto:sharmasunidhi2895@gmail.com" class="btn-primary">sharmasunidhi2895@gmail.com ↗</a>
           <a href="Sunidhi_Sharma_Resume_2026.pdf" download class="btn-terra">Download Resume ↓</a>
         </div>
         <div class="contact-links">
@@ -1186,13 +1185,6 @@ footer p {
   <p>© 2026 Sunidhi Sharma &nbsp;·&nbsp; San Francisco, CA &nbsp;·&nbsp; Built with care</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Nav scroll sta
+const observer = ne
